@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+    <div class="jumbotron">
+
+        <img class="card-img-top img-responsive"
+        src="{{ url_for('static', filename='logo_banner.png') }}">
+
+        <h4 class="lead"><strong>Fire detection powered by AI:</strong>
+            we combined surveillance drone capabilities with concepts of deep learning to create software
+            that detects early-stage wildfires.</h4>
+
+        <hr class="my-4">
+
+        <h4 class="lead">
+            Our team combines surveillance drones and concepts of machine learning to detect wildfires while
+            they are still in their early stages. The concept is to leverage the vast amounts of wildfire images
+            and videos available on the internet to train a machine learning algorithm to detect the presence of a
+            fire, however small it may be. The drone would then fly over parks and forests collecting the images.
+            An algorithm will determine the confidence level at which it believes a region is about to develop a
+            fire. We trained our model using videos uploaded by drone enthusiastic on sharing platforms.
+            To identify them, we used the "look similar to this" feature on search browsers,
+            automating it using an script.
+        </h4>
+
+        <h4 class="lead">
+            <a class="btn btn-primary btn-lg" href="login" role="button">Try it out!</a>
+        </h4>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{super()}}
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
+{% block title %}
+    App Name
+{% endblock %}
+
+{% block navbar %}
+    {% if current_user.is_authenticated %}
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="/">
+                        <img class="card-img-top img-responsive" style="height:150%;"
+                            src="{{ url_for('static', filename='logo_white.png') }}">
+                    </a>
+                </div>
+            </div>
+            <p class="navbar-text navbar-right">
+                Signed in as {{ current_user.name | capitalize }} <a href="/logout">logout</a>
+            </p>
+        </div>
+    </div>
+    {% else %}
+        <br>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        {% block page_content %}
+        {% endblock %}
+
+        {% if error %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+Flask
+bcrypt
+Flask-Bcrypt
+Flask-Login
+flask-WTF
+Flask-Bootstrap
+SQLAlchemy
+Flask-SQLAlchemy
+# Werkzeug
+# Flask-Script
+# WTForms
